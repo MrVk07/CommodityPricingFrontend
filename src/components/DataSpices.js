@@ -7,7 +7,7 @@ function DataSpices() {
     const [spicesdata, setSpicesData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        axios.get('/spices').then((resp) => resp.data).then((data) => {
+        axios.get('https://commoditypricingbackend-production.up.railway.app/spices').then((resp) => resp.data).then((data) => {
             setSpicesData(data)
             setLoading(false)
         })

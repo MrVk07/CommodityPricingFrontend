@@ -7,7 +7,7 @@ function DataFruits() {
     const [fruitsdata, setFruitsData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        axios.get('/fruits').then((resp) => resp.data).then((data) => {
+        axios.get('https://commoditypricingbackend-production.up.railway.app/fruits').then((resp) => resp.data).then((data) => {
             setFruitsData(data)
             setLoading(false)
         })

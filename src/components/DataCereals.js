@@ -7,7 +7,7 @@ function DataCereals() {
     const [cereralsdata, setCereals] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        axios.get('/cereals').then((resp) => resp.data).then((data) => {
+        axios.get('https://commoditypricingbackend-production.up.railway.app/cereals').then((resp) => resp.data).then((data) => {
             setCereals(data)
             setLoading(false)
         })
