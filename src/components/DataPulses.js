@@ -7,7 +7,7 @@ function DataPulses() {
     const [pulsesdata, setPulsesData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        axios.get('https://commoditypricingbackend-production.up.railway.app/pulses').then((resp) => resp.data).then((data) => {
+        axios.get('https://commoditypricingbackend.onrender.com/pulses').then((resp) => resp.data).then((data) => {
             setPulsesData(data)
             setLoading(false)
         })

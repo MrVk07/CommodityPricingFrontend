@@ -7,7 +7,7 @@ function DataOilSeeds() {
     const [oilseedsData, setOilSeedsData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        axios.get('https://commoditypricingbackend-production.up.railway.app/OilSeeds').then((resp) => resp.data).then((data) => {
+        axios.get('https://commoditypricingbackend.onrender.com/OilSeeds').then((resp) => resp.data).then((data) => {
             setOilSeedsData(data)
             setLoading(false)
         })
