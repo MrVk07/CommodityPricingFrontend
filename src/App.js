@@ -5,12 +5,8 @@ import {
   Route,
 } from "react-router-dom";
 import Homescreen from "./components/HomeScreen.js";
-import DataPulses from './components/DataPulses';
+import DataItem from './components/DataItem';
 import NavBar from './components/NavBar';
-import DataSpices from './components/DataSpices';
-import DataOilSeeds from './components/DataOilSeeds';
-import DataCereals from './components/DataCereals';
-import DataFruits from './components/DataFruits';
 
 
 function App() {
@@ -19,11 +15,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<Homescreen />} />
-        <Route path='/pulses' element={<DataPulses />} />
-        <Route path='/spices' element={<DataSpices />} />
-        <Route path='/oilseeds' element={<DataOilSeeds />} />
-        <Route path='/cereals' element={<DataCereals />} />
-        <Route path='/fruits' element={<DataFruits />} />
+        <Route path='/:item' element={<DataItem />} />
       </Routes>
     </Router>
   )
