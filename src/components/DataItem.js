@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
 import EachItem from './EachItem'
 import Loading from './Loading'
@@ -9,14 +9,24 @@ function DataItem() {
     const { item } = useParams();
     const [DataItem, setDataItem] = useState([])
     const [loading, setLoading] = useState(true)
-    useEffect(() => {
-        const url = resolveAPI(item)
+
+    const fetchData = useCallback(async () => {
+        const url = resolveAPI(item);
         setLoading(true);
-        axios.get(url).then((resp) => resp.data).then((data) => {
-            setDataItem(data)
-            setLoading(false)
-        })
-    }, [item])
+        try {
+            const response = await axios.get(url);
+            setDataItem(response.data);
+            setLoading(false);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            setLoading(false);
+        }
+    }, [item]);
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
+
 
     return (
         <>
